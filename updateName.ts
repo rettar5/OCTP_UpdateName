@@ -55,6 +55,7 @@ export class UpdateName {
    */
   static isValid(tweetData: OdnTweetData): boolean {
     let result: boolean = true;
+    result = result ? false === tweetData.isRetweet : false;
     result = result ? tweetData.isReplyToMe() : false;
     result = result ? (tweetData.command.match(/^update_name$/gi) ? result : false) : false;
     result = result ? this.isValidAction(tweetData) : false;
